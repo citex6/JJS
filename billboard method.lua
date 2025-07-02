@@ -341,6 +341,15 @@ local function refreshPlayerList()
         decalLabel.Text = "ID: " .. decalId
 
         entry.MouseButton1Click:Connect(function()
+
+			local textLabel = surfaceGui:FindFirstChildOfClass("TextLabel")
+			local imageLabel = surfaceGui:FindFirstChildOfClass("ImageLabel")
+
+			local displayName = textLabel and textLabel.Text or "N/A"
+       		local image = imageLabel and imageLabel.Image or "rbxasset://textures/ui/GuiImagePlaceholder.png"
+
+
+
             selectedDisplay.Text = label
             selectedUsername.Text = displayName
             selectedAvatar.Image = image
