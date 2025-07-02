@@ -388,13 +388,13 @@ end
 -- On Start button click:
 startBtn.MouseButton1Click:Connect(function()
 	if not targetPlayer then
-		notify("Error", "Select a target player first.", 5)
+		--notify("Error", "Select a target player first.", 5)
 		return
 	end
 
 	local inputId = inputBox.Text
 	if not inputId or inputId == "" then
-		notify("Error", "Enter a valid audio ID.", 5)
+		--notify("Error", "Enter a valid audio ID.", 5)
 		return
 	end
 	if not inputId:match("^rbxassetid://") then
@@ -403,7 +403,7 @@ startBtn.MouseButton1Click:Connect(function()
 		soundId = inputId
 	end
 
-	notify("Started", "Operation started for player: " .. targetPlayer.Name, 5)
+	--notify("Started", "Operation started for player: " .. targetPlayer.Name, 5)
 end)
 
 -- Your exact humanoid death sound logic, unchanged except using variable soundId:
@@ -419,7 +419,7 @@ local function connectHumanoidDeath(humanoid)
 			if targetPlayer and targetPlayer.Character and targetPlayer.Character:FindFirstChild("HumanoidRootPart") and character and character:FindFirstChild("HumanoidRootPart") then
 				local dist = (targetPlayer.Character.HumanoidRootPart.Position - character.HumanoidRootPart.Position).Magnitude
 				if dist <= 40 then
-					notify("Humanoid Died Near Target", name .. " died within " .. math.floor(dist) .. " studs.", 5)
+					--notify("Humanoid Died Near Target", name .. " died within " .. math.floor(dist) .. " studs.", 5)
 
 					if not character.HumanoidRootPart:FindFirstChild("DeathSpoofed") then
 						local sound = Instance.new("Sound")
