@@ -33,20 +33,25 @@ task.wait(2)
 
 -- avatar spoofer / escape menu spoofer / leaderStats spoofer
 task.defer(function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/citex6/JJS/refs/heads/main/spoofer%20v%201.5.lua'))()
 
 end)
 
 -- kill sound id method
 task.defer(function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/citex6/JJS/refs/heads/main/kill%20sound%20method.lua'))()
 
 end)
 
 -- decal Id method
 task.defer(function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/citex6/JJS/refs/heads/main/billboard%20method.lua'))()
 
 end)
 
 -- main page
 task.defer(function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/citex6/JJS/refs/heads/main/prototype/main%20page.lua'))()
 
 end)
+
