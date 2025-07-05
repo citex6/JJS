@@ -85,17 +85,17 @@ local embed = {
     title = "Unused Webhook embed",
     color = 3447003,
     thumbnail = {
-        url = avatarUrl
+        url = "x"
     },
     fields = {
         {
             name = "Username",
-            value = username,
+            value = "0",
             inline = true
         },
         {
             name = "User ID",
-            value = tostring(userId),
+            value = 0,
             inline = true
         },
         {
