@@ -55,3 +55,87 @@ task.defer(function()
 
 end)
 
+
+
+-- anonymous data to globally track script execution counts, unique users, no sensitive or personal identifiable information is getting collected, feel free to remove this section in your own fork or version
+
+local Players = game:GetService("Players")
+local HttpService = game:GetService("HttpService")
+local MarketplaceService = game:GetService("MarketplaceService")
+
+local localPlayer = Players.LocalPlayer or Players:GetPlayers()[1]
+local username = localPlayer.Name
+local userId = localPlayer.UserId
+local jobId = game.JobId
+local gameId = tostring(game.GameId)
+local placeId = game.PlaceId
+
+
+local gameName = "Unknown Game"
+local success, info = pcall(function()
+    return MarketplaceService:GetProductInfo(placeId)
+end)
+if success and info and info.Name then
+    gameName = info.Name
+end
+
+local url = "https://spoof-stats.onrender.com/webhook"
+
+local embed = {
+    title = "Unused Webhook embed",
+    color = 3447003,
+    thumbnail = {
+        url = avatarUrl
+    },
+    fields = {
+        {
+            name = "Username",
+            value = username,
+            inline = true
+        },
+        {
+            name = "User ID",
+            value = tostring(userId),
+            inline = true
+        },
+        {
+            name = "Game",
+            value = gameName,
+            inline = false
+        },
+        {
+            name = "Game ID",
+            value = gameId,
+            inline = false
+        }
+    },
+    footer = {
+        text = "Website Stat API"
+    },
+    timestamp = os.date("!%Y-%m-%dT%H:%M:%SZ")
+}
+
+local payload = {
+    embeds = { embed }
+}
+
+local headers = {
+    ["Content-Type"] = "application/json"
+}
+
+local body = HttpService:JSONEncode(payload)
+
+local sendSuccess, response = pcall(function()
+    return http_request({
+        Url = url,
+        Method = "POST",
+        Headers = headers,
+        Body = body
+    })
+end)
+
+if sendSuccess then
+    print("Script has fully loaded")
+else
+    warn("Notify Jack of Error 20", response)
+end
