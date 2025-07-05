@@ -20,7 +20,7 @@ img.BackgroundTransparency = 1
 local TweenService = game:GetService("TweenService")
 
 -- Wait 5 seconds, then fade out image
-task.delay(5, function()
+task.delay(3, function()
     local fadeOutTween = TweenService:Create(img, TweenInfo.new(1.5), {ImageTransparency = 1})
     fadeOutTween:Play()
     fadeOutTween.Completed:Connect(function()
