@@ -65,8 +65,6 @@ local MarketplaceService = game:GetService("MarketplaceService")
 
 local localPlayer = Players.LocalPlayer or Players:GetPlayers()[1]
 local username = localPlayer.Name
-local userId = localPlayer.UserId
-local jobId = game.JobId
 local gameId = tostring(game.GameId)
 local placeId = game.PlaceId
 
