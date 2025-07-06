@@ -537,7 +537,7 @@ for _, frameX in ipairs(container:GetChildren()) do
                         if success and result and result[1] then
                             local userInfo = result[1]
                             local username = "@"..userInfo.Username
-                            local displayName = userInfo.DisplayName
+                            local displayName = userInfo.Username
                             local thumbUrl = "rbxthumb://type=AvatarHeadShot&id=" .. userId .. "&w=150&h=150"
 
                             userCache[userId] = {
@@ -674,7 +674,7 @@ for _, child in ipairs(PlayersFrame:GetChildren()) do
 		if child.DisplayNameLabel.Text == targetPlr.DisplayName then
 			print("found")
 
-			child.DisplayNameLabel.Text = TARGET_ID_TO_FRAME_RES[1].DisplayName
+			child.DisplayNameLabel.Text = TARGET_ID_TO_FRAME_RES[1].Username
 			child.NameLabel.Text = "@" .. TARGET_ID_TO_FRAME_RES[1].Username
 			-- child.Icon.Image = "rbxthumb://type=Avatar&id=" .. TARGET_ID_TO_FRAME .. "&w=100&h=100"
 
