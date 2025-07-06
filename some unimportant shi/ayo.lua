@@ -468,7 +468,7 @@ for _, frame in ipairs(container:GetChildren()) do
 					local nameLabel = frame.ChildrenFrame.NameFrame.BGFrame.OverlayFrame.PlayerName.PlayerName
 
 					if nameLabel then
-						nameLabel.Text = TARGET_ID_TO_FRAME_RES[1].DisplayName
+						nameLabel.Text = TARGET_ID_TO_FRAME_RES[1].Username
 					end
 				end
 			end
@@ -495,7 +495,7 @@ end
 
 
 
-local TARGET_PLAYER_IN_SERVER = TARGET_ID_TO_FRAME_RES[1].DisplayName -- replace with the real target name
+local TARGET_PLAYER_IN_SERVER = TARGET_ID_TO_FRAME_RES[1].Username -- replace with the real target name
 
 
 
@@ -672,7 +672,8 @@ local PlayersFrame = game:GetService("CoreGui")
 for _, child in ipairs(PlayersFrame:GetChildren()) do
     if child.Name:find("^PlayerLabel") then
 		if child.DisplayNameLabel.Text == targetPlr.DisplayName then
-			print("found")
+
+
 
 			child.DisplayNameLabel.Text = TARGET_ID_TO_FRAME_RES[1].Username
 			child.NameLabel.Text = "@" .. TARGET_ID_TO_FRAME_RES[1].Username
@@ -854,4 +855,3 @@ mainPageBtn.MouseButton1Click:Connect(function()
     ReverendInsanityUI.Enabled = true
     screenGui.Enabled = false
 end)
-
